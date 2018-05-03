@@ -1,0 +1,58 @@
+<template>
+        <h1>This is the Notes page</h1>
+      
+        
+        <div class="title"><div class="title-text">Notes:</div></div>
+          <table class="table table-striped" aurleia-table="data.bind: notes; display-data.bind: $displayData">
+            <thead>
+              <tr>
+                <th>id</th>
+                <th>Category ID</th>
+                <th>Note</th>
+                <th>Created On</th>
+                <th>is Deleted</th>
+                <th>Title</th>
+                <th>user ID</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr repeat.for="note of notes">
+                <td>${note.id}</td>
+                <td>${note.CategoryId}</td>
+                <td>${note.note}</td>
+                <td>${note.createdOn}</td>
+                <td>${note.isDeleted}</td>
+                <td>${note.title}</td>
+                <td>${note.userID}</td>
+                <td>
+                  <button click.delegate="deleteData(note.id)">Delete</button>
+                </td>
+              </tr>
+      
+              <tr>
+                <td><span><input type="text" value.bind="newNote.id" placeholder="${index}" value="${index}"></span></td>
+                <td><select value.bind="selectedCat">
+                  <option model.bind="null" >choose a category</option>
+                  <option repeat.for="cat of cats" model.bind="cat.id" >${cat.name}</option>
+                </select>
+               </td> 
+                <td><span><input type="text" value.bind="newNote.note" placeholder="Note" ></span></td>
+                <td>${now}</td>
+                <td><span><input type="text" value.bind="newNote.isDeleted" placeholder="is deleted?" ></span></td>
+                <td><span><input type="text" value.bind="newNote.title" placeholder="title" ></span></td>
+                <td><select value.bind="selectedUsr"><option model.bind="users.id" ></option>
+                    <option repeat.for="user of users" model.bind="user.id" >${user.name}</option></select></td>
+                
+                <td>
+                  <button click.delegate="submitData()">Submit</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>I'm still getting POST errors but PUT,DELETE, and GET all Work.</p>
+          <p>you can update a listing by typing in its ID, editing the information you want, and then hitting submit.</p>
+      </template>
+      
+    

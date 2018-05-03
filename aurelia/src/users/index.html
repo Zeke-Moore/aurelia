@@ -1,0 +1,41 @@
+<template>
+    <h1>This is the Users page</h1>
+  
+    
+    <div class="title"><div class="title-text">Users:</div></div>
+      <table class="table table-striped" aurleia-table="data.bind: User; display-data.bind: $displayData">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Creation Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr repeat.for="User of users">
+            <td>${User.id}</td>
+            <td>${User.name}</td>
+            <td>${User.email}</td>
+            <td>${User.createdOn}</td>
+            <td>
+              <button click.delegate="deleteData(User.id)">Delete</button>
+            </td>
+          </tr>
+  
+          <tr>
+            <td><span><input type="text" value.bind="newUser.id" placeholder="${index}" value="${index}"></span></td>
+            <td><span><input type="text" value.bind="newUser.name" placeholder="Name" ></span></td>
+            <td><span><input type="text" value.bind="newUser.email" placeholder="Name@domain.com" ></span></td>
+            <td>${now}</td>
+            <td>
+              <button click.delegate="submitData()">Submit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>I'm still getting POST errors but PUT,DELETE, and GET all Work.</p>
+          <p>you can update a listing by typing in its ID, editing the information you want, and then hitting submit.</p>
+  </template>
+  

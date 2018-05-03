@@ -1,0 +1,10 @@
+<!-- This is a global container. Everything else uses this behind it -->
+<template bindable="router">
+  <!-- File Imports-->
+  <require from="./app.css"></require>
+  <require from='./nav-bar/navbar'></require>
+
+  <!-- Displays Navbar and binds router options to it -->
+  <nav-bar router.bind="router"></nav-bar>
+  <router-view></router-view>
+</template>

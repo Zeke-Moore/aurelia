@@ -1,0 +1,35 @@
+<template>
+  <h1>This is the Categories page</h1>
+
+  
+  <div class="title"><div class="title-text">categories:</div></div>
+    <table class="table table-striped" aurleia-table="data.bind: categories; display-data.bind: $displayData">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr repeat.for="cat of categories">
+          <td>ID: ${cat.id}</td>
+          <td>Name: ${cat.name}</td>
+          <td>
+            <button click.delegate="deleteData(cat.id)">Delete</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td><span><input type="text" value.bind="newCat.id" placeholder="${index}" value="${index}"></span></td>
+          <td><span><input type="text" value.bind="newCat.name" placeholder="Name" ></span></td>
+          <td>
+            <button click.delegate="submitCat()">Submit</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>I'm still getting POST errors but PUT,DELETE, and GET all Work.</p>
+          <p>you can update a listing by typing in its ID, editing the information you want, and then hitting submit.</p>
+</template>
